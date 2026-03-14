@@ -50,3 +50,21 @@ let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not Authenticated";
 
 console.log("Authentication Status:", authenticationStatus);
+
+userType = "Enrolled Member";
+
+console.log("Changed user type to:", userType);
+
+switch (userType) {
+    case "Employee":
+        console.log("Authorized to have access to Dietary Services.");
+        break;
+    case "Enrolled Member":
+        console.log("Authorized to have access to Dietary Services and a one-on-one interaction with a dietician.");
+        break;
+    case "Subscriber":
+        console.log("Partial access to Dietary Services.");
+        break;
+    default:
+        console.log("Please enroll or at least subscribe to gain access to this facility.");
+}
