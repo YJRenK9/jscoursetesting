@@ -1,6 +1,6 @@
-const breakfastMenu = ['Pancakes', 'Eggs Benedict', 'Oatmeal', 'Frittata'];
-const mainCourseMenu = ['Steak', 'Pasta', 'Burger', 'Salmon'];
-const dessertMenu = ['Cake', 'Ice Cream', 'Pudding', 'Fruit Salad'];
+const breakfastMenu = ['Pancakes - $12', 'Eggs Benedict - $21.99', 'Oatmeal - $9', 'Frittata - $16'];
+const mainCourseMenu = ['Steak - $24', 'Pasta - $19.99', 'Burger - $14.99', 'Salmon - $15.65'];
+const dessertMenu = ['Cake - $17.99', 'Ice Cream - $10.99', 'Pudding - $7.99', 'Jello - $6.99'];
 
 // use map function to return a copy of the array of items in p tags, then use join('') to reduce the array into a string
 const breakfastMenuItemsHTML = breakfastMenu.map((item, index) => `<p>Item ${index + 1}: ${item}</p>`).join('');
