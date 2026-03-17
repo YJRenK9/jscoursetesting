@@ -1,5 +1,7 @@
 
+// gets the reference of the submit button
 const submitButton = document.getElementById('submitBtn');
+// runs the submit feedback function when clicked
 submitButton.onclick = submitFeedback;
 
 function submitFeedback() {
