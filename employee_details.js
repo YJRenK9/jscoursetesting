@@ -8,10 +8,20 @@ const employees = [
 // Function to display all employees
 function displayEmployees() {
     const totalEmployees = employees
-        .map(employee => `<p>${employee.id}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`)
+        .map(employee => `<p>${employee.id}: ${employee.name} - ${employee.age} - ${employee.department} - $${employee.salary}</p>`)
         .join('');
-    document.getElementById('employeeDetails').innerHTML = totalEmployees;    
+    
+    document.getElementById('employeeDetails').innerHTML = totalEmployees;   
+    console.log(totalEmployees); 
 }
+// Function to display all employees
+// function displayEmployees() {
+//     const totalEmployees = employees
+//         .map(employee => `<p>${employee.id}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`)
+//         .join('');
+//     document.getElementById('employeesDetails').innerHTML = totalEmployees;
+// }
+
 
 // Function to calculate the total salary
 function calculateTotalSalaries() {
@@ -22,5 +32,17 @@ function calculateTotalSalaries() {
 // function to filter employees by department
 function filterEmployeesByDepartment(department) {
     const filteredEmployees = employees.filter(employee => employee.department === department);
-    const displayFilteredEmployees = filteredEmployees.map((employee, index) => `<p>${employee.id}: ${employee.name}: `);
+    const displayFilteredEmployees = filteredEmployees.map((employee, index) => `<p>${employee.id}: ${employee.name} - ${employee.age} - ${employee.department} - $${employee.salary}</p>`);
+    document.getElementById('employeeDetails').innerHTML = displayFilteredEmployees;
+}
+
+// function to find employee by id
+function findEmployeeById(employeeId) {
+    const foundEmployee = employees.find(employee => employee.id === employeeId);
+    
+    if (foundEmployee) {
+        document.getElementById('employeeDetails').innerHTML = `<p>${foundEmployee.id}: ${foundEmployee.name} - ${foundEmployee.age} - ${foundEmployee.department} - $${foundEmployee.salary}</p>`
+    } else {
+        document.getElementById('employeeDetails').innerHTML = 'no employee has been found with this ID'
+    }
 }
