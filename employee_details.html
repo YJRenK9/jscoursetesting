@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Employee Management System</title>
+  <style>
+    #departments {
+        display: none;
+    }
+  </style>
 </head>
 <body>
    <h1>Employee Management System</h1>
@@ -9,8 +14,13 @@
   <div>
     <button onclick="displayEmployees()">Display Employees</button>
     <button onclick="calculateTotalSalaries()">Calculate Total Salaries</button>
-    <button onclick="filterEmployeesByDepartment('H')">Display HR Employees</button>
-    <button onclick="findEmployeeById(2)">Find Employee by ID 2</button>
+    <button onclick="showFilterOptions()">Display Employees By Department</button>
+    <select id="departments">
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+    </select>
+    <button onclick="findEmployeeById()">Find Employee by ID</button>
   </div>
 
  <div id="employeesDetails"></div>
