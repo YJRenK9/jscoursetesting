@@ -3,24 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Management System</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .container > label {
+            width: 25% !important;
+        }
+        /* .container > button {
+            gap: 20px;
+        } */
+        .btn-container > button {
+            width: 20%;
+        }
+    </style>
 </head>
-<body>
-    <h1>Book Management System</h1>
-    <label for="bookName">Book Name:</label><br>
-    <input type="text" id="bookName"><br><br>
-    <label for="authorName">Author Name:</label><br>
-    <textarea id="authorName" rows="4"></textarea><br><br>
-    <label for="bookDescription">Book Description:</label><br>
-    <textarea id="bookDescription" rows="4"></textarea><br><br>
-    <label for="pagesNumber">No. of Pages:</label><br>
-    <input type="number" id="pagesNumber"><br><br>
-    <button onclick="addBook()">Add Book</button>
-    <button onclick="clearInputs()">Clear Inputs</button>
 
-    <h2>books</h2>
-    <div id="books">
-        <!-- books will be displayed here -->
+<body>
+    <div style="display: grid; place-items: center;">
+        <div class="container" style="display: flex; flex-direction: column; justify-content: center; width: 40%;">
+            <div>
+                
+            </div>
+            <h1 style="text-align: center;">Book Management System</h1>
+            <label for="bookName">Book Name:</label><br>
+            <input type="text" id="bookName"><br><br>
+            <label for="authorName">Author Name:</label><br>
+            <input id="authorName" ></textarea><br><br>
+            <label for="bookDescription">Book Description:</label><br>
+            <textarea id="bookDescription" rows="4"></textarea><br><br>
+            <label for="pagesNumber">No. of Pages:</label><br>
+            <input type="number" id="pagesNumber"><br><br>
+            <div class="btn-container" style="display:flex;justify-content:center;flex-direction:row-reverse;gap:20%;">
+               <button onclick="addBook()">Add Book</button>
+                <button onclick="clearInputs()">Clear Inputs</button> 
+            </div>
+            <h2>Added Books</h2>
+            <div id="books" style="display:flex;flex-direction:column;flex-wrap:wrap;width:100%;box-sizing:border-box;">
+                <!-- books will be displayed here -->
+            </div>
+        </div>
+        <div>
+            
+        </div>
     </div>
+    
+
+    
     <script src="./book_system.js"></script>
 </body>
 </html>
