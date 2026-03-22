@@ -1,6 +1,7 @@
 const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'red', 'blue', 'green', 'purple', 'orange', 'pink'];
-
+console.log(colors);
 let cards = shuffle(colors.concat(colors));
+console.log(cards);
 let selectedCards = [];
 let score = 0;
 let timeLeft = 30;
@@ -15,6 +16,7 @@ const scoreElement = document.getElementById('score');
 // reference for the timer
 const timerElement = document.getElementById('timer');
 
+// when the user clicks on the start button, the game begins
 startbtn.addEventListener('click', startGame);
 
 
@@ -37,6 +39,7 @@ function shuffle(array) {
         // swaps array[i] with array[j]
         [array[i], array[j]] = [array[j], array[i]];
     }
+    // update the cards array
     return array;
 }
 
@@ -48,10 +51,12 @@ function handleCardClick(event) {
     }
     // display the card's color to the user
     card.textContent = card.dataset.color;
-    // update the card's background color with the provided color
+    // update the card's background color with the provided color (reveals the card's color)
     card.style.backgroundColor = card.dataset.color;
+    // add the card you selected to the selected cards list
     selectedCards.push(card);
     if (selectedCards.length === 2) {
+        // let the user see the selected cards for half a second before checking if the two cards match 
         setTimeout(checkMatch, 500);
     }
 }
@@ -59,16 +64,21 @@ function handleCardClick(event) {
 function checkMatch() {
     const [card1, card2] = selectedCards;
     if (card1.dataset.color === card2.dataset.color) {
+        // add the matched class to the two cards
         card1.classList.add('matched');
         card2.classList.add('matched');
+        // increase the score
         score += 2;
+        // update the score
         scoreElement.textContent = `Score: ${score}`;
     } else {
+        // revert back to ? and gray color since the player guessed wrong
         card1.textContent = '?';
         card2.textContent = '?';
         card1.style.backgroundColor = '#ddd';
         card2.style.backgroundColor = '#ddd';
     }
+    // empty the selected cards array after the player selected 2 cards
     selectedCards = [];
 }
 
@@ -78,7 +88,7 @@ function startGame() {
     score = 0; // Reset score to zero
     scoreElement.textContent = `Score: ${score}`;
     startGameTimer(timeLeft);
-    cards = shuffle(colors.concat(colors));
+    cards = shuffle(colors.concat(colors)); // shuffle the cards every time the player starts the game
     selectedCards = [];
     gameContainer.innerHTML = '';
     generateCards();
