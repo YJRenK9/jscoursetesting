@@ -7,11 +7,15 @@ const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 // reference for removing completed tasks
 const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+// reference for removing all tasks
+const removeAllBtn = document.getElementById("removeAllBtn");
 
 // adds a task to the list when the user clicks on the "add task" button
 addTaskBtn.addEventListener("click", addTask);
 // clears completed tasks on the task list when the user clicks on the "clear completed tasks" button
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+// removes all tasks on the list when the user clicks on the "remove all tasks" button
+removeAllBtn.addEventListener("click", removeAllTasks);
 
 // a list of tasks (array of objects)
 let tasks = [];
@@ -60,6 +64,13 @@ function toggleTask(index) {
 function clearCompletedTasks() {
     // filter only the incompleted tasks (meaning the completed tasks are removed)
     tasks = tasks.filter(task => !task.completed);
+    // display the updated tasks list
+    displayTasks();
+}
+
+function removeAllTasks() {
+    // set the array length to 0 to remove all tasks
+    tasks.length = 0;
     // display the updated tasks list
     displayTasks();
 }
